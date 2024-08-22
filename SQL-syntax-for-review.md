@@ -14,3 +14,11 @@ SELECT user_id,
   FROM viewership
 )
 ```
+5. ```
+   -- Sample Usage of FILTER WHERE()
+   SELECT 
+    COUNT(*) FILTER(WHERE device_type = 'laptop') AS laptop_views,
+    COUNT(*) FILTER(WHERE device_type = 'tablet' OR device_type = 'phone' ) AS mobile_views    
+    FROM viewership;
+    -- GROUP BY device_type (not required here, as FILTER operation)
+   ```
