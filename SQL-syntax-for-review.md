@@ -54,4 +54,6 @@ ORDER BY department_name, salary DESC
 
 ```
 
+DISCOUNT COUPON STRATASCRATCH - BUILDINGBLOCKS30 (30% off on yearly membership)
+
 
