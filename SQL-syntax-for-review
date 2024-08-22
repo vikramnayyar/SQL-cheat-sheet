@@ -1,4 +1,4 @@
 * `DATE_PART('day', tweet_date)` AS tweet_day
-* `RANK() OVER (PARTITION BY user_id ORDER BY tweet_count) AS user_tweet_no`
+* """ RANK() OVER (PARTITION BY user_id ORDER BY tweet_count) AS user_tweet_no """
 * `ROUND( AVG(tweet_count) OVER( PARTITION BY user_id, ORDER BY tweet_date ROWS 2 PRECEEDING CURRENT ROW ) , 2)  AS tweet_avg_3day`
 * 
