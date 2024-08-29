@@ -54,6 +54,26 @@ ORDER BY department_name, salary DESC
 
 ```
 
+8.
+```
+-- Sample Code for single MAX(CASE WHEN ) - pivoting using CASE WHEN
+
+with engg_cte as (
+select e.salary as salary,
+        d.department as dept
+from db_employee AS e
+left join db_dept AS d on e.department_id = d.id
+WHERE d.department in ('engineering', 'marketing')
+)
+
+select ABS(MAX(case WHEN dept = 'engineering' then salary else null end) - MAX(case WHEN dept = 'marketing' then salary else null end)) as salary_difference
+from engg_cte
+;
+
+```
+
+
+
 DISCOUNT COUPON STRATASCRATCH - BUILDINGBLOCKS30 (30% off on yearly membership)
 
 
