@@ -105,7 +105,11 @@ cte_3 as (
 select * from cte_3
 ;
 ```
-
+10. Remove Dups from a Table
+```
+SELECT DISTINCT Name, Department
+FROM Employees;
+``` 
 
 
 DISCOUNT COUPON STRATASCRATCH - BUILDINGBLOCKS30 (30% off on yearly membership)
