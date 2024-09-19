@@ -72,6 +72,40 @@ from engg_cte
 
 ```
 
+9. Usage of SELECT FILTER (Always Check Before Join) & FORMULA in SELECT
+```
+
+-- select * from facebook_posts;
+
+with cte_1 as (
+    SELECT post_date,
+            count(post_id) as total_spam
+    FROM facebook_posts
+    WHERE post_id in (SELECT post_id FROM facebook_post_views) and post_keywords like "%spam%" 
+    GROUP BY post_date
+)
+,
+
+cte_2 as (
+    SELECT post_date,
+            count(post_id) as total_posts
+    FROM facebook_posts
+    WHERE post_id in (SELECT post_id FROM facebook_post_views)
+    GROUP BY post_date
+),
+
+cte_3 as (
+    SELECT t.post_date, 
+            (((s.total_spam) / t.total_posts)*100) as spam_share
+            from cte_2 as t
+    left join cte_1 as s on s.post_date = t.post_date 
+            
+)
+
+select * from cte_3
+;
+```
+
 
 
 DISCOUNT COUPON STRATASCRATCH - BUILDINGBLOCKS30 (30% off on yearly membership)
